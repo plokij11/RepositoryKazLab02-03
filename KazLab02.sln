@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KazLab02", "KazLab02\KazLab02.csproj", "{3A50776C-0567-4111-B072-0EF6CF34B967}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A50776C-0567-4111-B072-0EF6CF34B967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A50776C-0567-4111-B072-0EF6CF34B967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A50776C-0567-4111-B072-0EF6CF34B967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A50776C-0567-4111-B072-0EF6CF34B967}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51A5BB02-4033-4398-9CFA-0A41064A7B88}
+	EndGlobalSection
+EndGlobal
