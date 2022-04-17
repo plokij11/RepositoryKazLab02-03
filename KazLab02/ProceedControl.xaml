@@ -3,19 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:KazLab02"
+             xmlns:tools="clr-namespace:KazLab02.Tools.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="320" d:DesignWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
 
         </Grid.RowDefinitions>
@@ -23,14 +19,10 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" FontSize="11" Foreground="Gray" Margin="5,5,5,2"></TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="TbName" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5,0,5,5"></TextBox>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Surname:" FontSize="11" Foreground="Gray" Margin="5,5,5,2"></TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="TbSurname" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5,0,5,5"></TextBox>
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Email:" FontSize="11" Foreground="Gray" Margin="5,5,5,2"></TextBlock>
-        <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Name="TbEmail" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5,0,5,5"></TextBox>
-        <TextBlock Grid.Row="6" Grid.Column="0" Text="Date of Birth:" FontSize="11" Foreground="Gray" Margin="5,5,5,2"></TextBlock>
-        <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Name="TbBirth" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5,0,5,5"></TextBox>
-        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" Margin="100,5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Content="Procced" Click="BProcced_Click"></Button>
+        <tools:TextBoxWithCaption x:Name="TbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Caption="Name:"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbSurname" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Caption="Surname:"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbEmail" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Caption="Email:"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbBirth" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Caption="Date of Birth:"></tools:TextBoxWithCaption>
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" Margin="100,5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Content="Procced" Click="BProcced_Click"></Button>
     </Grid>
 </UserControl>
