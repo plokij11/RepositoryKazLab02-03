@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KazLab02.ProceedControl"
+﻿<UserControl x:Class="KazLab02.Views.ProceedView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,10 +19,10 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <tools:TextBoxWithCaption x:Name="TbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Caption="Name:"></tools:TextBoxWithCaption>
-        <tools:TextBoxWithCaption x:Name="TbSurname" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Caption="Surname:"></tools:TextBoxWithCaption>
-        <tools:TextBoxWithCaption x:Name="TbEmail" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Caption="Email:"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Caption="Name:" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbSurname" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Caption="Surname:" Text="{Binding Surname, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbEmail" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Caption="Email:" Text="{Binding Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
         <tools:TextBoxWithCaption x:Name="TbBirth" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Caption="Date of Birth:"></tools:TextBoxWithCaption>
-        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" Margin="100,5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Content="Procced" Click="BProcced_Click"></Button>
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" Margin="100,5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Content="Procced" Command="{Binding ProceedCommand}"></Button>
     </Grid>
 </UserControl>

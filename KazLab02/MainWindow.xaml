@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KazLab02"
+        xmlns:local="clr-namespace:KazLab02.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="400" MinHeight="310" MinWidth="300">
     <Grid>
-        <local:ProceedControl></local:ProceedControl>
+        <local:ProceedView></local:ProceedView>
     </Grid>
 </Window>

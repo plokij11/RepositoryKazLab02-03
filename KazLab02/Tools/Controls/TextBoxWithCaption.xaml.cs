@@ -29,10 +29,17 @@ namespace KazLab02.Tools.Controls
 
         public string Text
         {
-            get { return TbValue.Text; }
-            set { TbValue.Text = value; }
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
 
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register
+        (
+                "Text",
+                typeof(string),
+                typeof(TextBoxWithCaption),
+                new PropertyMetadata(null)
+        );
 
         public TextBoxWithCaption()
         {
