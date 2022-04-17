@@ -23,8 +23,6 @@ namespace KazLab02
         public MainWindow()
         {
             InitializeComponent();
-            var proccedWindow = new ProceedWindow();
-            proccedWindow.ShowDialog();
         }
 
         
