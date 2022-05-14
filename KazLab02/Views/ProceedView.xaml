@@ -13,16 +13,39 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <tools:TextBoxWithCaption x:Name="TbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Caption="Name:" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
-        <tools:TextBoxWithCaption x:Name="TbSurname" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Caption="Surname:" Text="{Binding Surname, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
-        <tools:TextBoxWithCaption x:Name="TbEmail" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Caption="Email:" Text="{Binding Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
-        <tools:TextBoxWithCaption x:Name="TbBirth" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Caption="Date of Birth:"></tools:TextBoxWithCaption>
-        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" Margin="100,5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Content="Procced" Command="{Binding ProceedCommand}"></Button>
+        <tools:TextBoxWithCaption x:Name="TbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Caption="Name:" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbSurname" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Caption="Surname:" Text="{Binding Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
+        <tools:TextBoxWithCaption x:Name="TbEmail" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Caption="Email:" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></tools:TextBoxWithCaption>
+        <DatePicker Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="5" SelectedDateFormat="Short" SelectedDate="{Binding BirthNullable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="BProcced" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Width="100" Content="Procced" Command="{Binding ProceedCommand}"></Button>
+        
+        <Label Grid.Row="5" Grid.Column="0" Content="Your Sun Sign is " FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <Label Grid.Row="6" Grid.Column="0" Content="Your Chinese Sign is " FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <Label Grid.Row="7" Grid.Column="0" Content="Is it your Birthday today? " FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+        <Label Grid.Row="8" Grid.Column="0" Content="Are you an adult? " FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,18,5,2" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,18,5,2" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,18,5,2" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,5,5,5" Text ="{Binding BirthNullable, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,5,5,5" Text ="{Binding SunSign, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,5,5,5" Text ="{Binding ChineseSign, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,5,5,5" Text="{Binding IsBirthday, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="1" Height="25" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" FontWeight="DemiBold" Margin="5,5,5,5" Text="{Binding IsAdult, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
+
+
+
     </Grid>
 </UserControl>

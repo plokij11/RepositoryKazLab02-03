@@ -1,16 +1,22 @@
 ﻿using KazLab02.Models;
 using KazLab02.Tools;
+using KazLab02.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
-namespace KazLab02.ViewModels
+namespace KazLab02.ViewModels    
 {
-    internal class ProceedViewModel
+    internal class ProceedViewModel : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
         #region Fields
         private Person _person = new Person();
 
@@ -35,10 +41,63 @@ namespace KazLab02.ViewModels
             get { return _person.Email; }
             set { _person.Email = value; }
         }
-        public int Birth
+
+        public DateTime? BirthNullable
         {
-            get { return _person.Birth; }
-            set { _person.Birth = value; }
+            get { return _person.BirthNullable; }
+            set  {  _person.BirthNullable = value;  }
+        }
+        
+        public bool? IsAdult
+        {
+            get { return _person.IsAdult; }
+        }
+        public string SunSign
+        {
+            get { return _person.SunSign; }
+        }
+        public string ChineseSign
+        {
+            get { return _person.ChineseSign; }
+        }
+        public bool? IsBirthday
+        {
+            get { return _person.IsBirthday; }
+        }
+        #endregion
+
+        
+        
+
+
+        private async void Proceed()
+        {
+            await Task.Run(() => Thread.Sleep(500));
+
+            _person.IsBirthdayFunction();
+            _person.IsAdultFunction();
+
+            await Task.Run(() =>
+            {
+                _person.CalculateSunSign();
+                _person.CalculateChineseSign();
+                _person.IsBirthdayFunction();
+                _person.IsAdultFunction();
+            });
+            
+            
+
+            OnPropertyChanged(nameof(BirthNullable));
+            OnPropertyChanged(nameof(IsAdult));
+            OnPropertyChanged(nameof(IsBirthday));
+            OnPropertyChanged(nameof(SunSign));
+            OnPropertyChanged(nameof(ChineseSign));
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(Surname));
+            OnPropertyChanged(nameof(Email));
+
+            if ((bool)IsBirthday)
+                MessageBox.Show("Congratulations! Today is your Birthday! Best wishes :)");
         }
 
         public RelayCommand<object> ProceedCommand
@@ -49,22 +108,16 @@ namespace KazLab02.ViewModels
             }
         }
 
+        private bool CanExecute(object obj) => !String.IsNullOrWhiteSpace(Name) &&
+                                               !String.IsNullOrWhiteSpace(Surname) &&
+                                               !String.IsNullOrWhiteSpace(Email) &&
+                                               BirthNullable!= null;
 
-        #endregion
-        private void Proceed()
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            MessageBox.Show($"Your name is {_person.Name}\n Your surname is {_person.Surname}\n Your email is {_person.Email}");
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        private bool CanExecute(object obj)
-        {
-            return !String.IsNullOrWhiteSpace(_person.Name) &&
-                   !String.IsNullOrWhiteSpace(_person.Surname) &&
-                   !String.IsNullOrWhiteSpace(_person.Email);
-                   //!String.IsNullOrWhiteSpace(_person.Birth);
-            
-        }
-
-        
     }
+
+    
 }
