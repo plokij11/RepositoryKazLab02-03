@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using KazLab02.Exceptions;
 
@@ -233,9 +234,19 @@ namespace KazLab02.Models
             }
         }
 
+        string _pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                         @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+
+        internal void ValidateEmail()
+        {
+            if (!Regex.IsMatch(Email, _pattern, RegexOptions.IgnoreCase))
+                throw new BadEmailException("Email must look like amster@gmail.com");
+        }
+
         internal void Validate()
         {
             ValidateBirthday();
+            ValidateEmail();
         }
 
        

@@ -77,6 +77,26 @@ namespace KazLab02.ViewModels
             _person.IsBirthdayFunction();
             _person.IsAdultFunction();
 
+            try
+            {
+                _person.Validate();
+            }
+            catch (FutureBirthException e)
+            {
+                MessageBox.Show(e.Message);
+                return;
+            }
+            catch (PastBirthException e)
+            {
+                MessageBox.Show(e.Message);
+                return;
+            }
+            catch (BadEmailException e)
+            {
+                MessageBox.Show(e.Message);
+                return;
+            }
+
             await Task.Run(() =>
             {
                 _person.CalculateSunSign();

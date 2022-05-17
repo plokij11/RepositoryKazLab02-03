@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KazLab02.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="500" MinHeight="550" MinWidth="400">
+        Title="MainWindow" Height="500" Width="500" MinHeight="400" MinWidth="400">
     <Grid>
         <local:ProceedView></local:ProceedView>
     </Grid>
